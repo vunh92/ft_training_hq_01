@@ -15,8 +15,19 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(widget.title),
         backgroundColor: Colors.red,
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(left: 10, right: 10),
+            child: Icon(Icons.shopping_cart, color: Colors.white,),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 10, right: 10),
+            child: Icon(Icons.notifications, color: Colors.white,),
+          )
+        ],
       ),
       body: Stack(
         // alignment: AlignmentDirectional.bottomCenter,
@@ -24,13 +35,46 @@ class HomePageState extends State<HomePage> {
           Container(
             height: 100,
             width: double.infinity,
-            color: Colors.blueAccent ,
+            decoration: BoxDecoration(
+                color: Colors.red,
+                borderRadius: BorderRadius.vertical(bottom: Radius.circular(30))
+            ),
           ),
-          Container(
-            alignment: AlignmentDirectional.bottomCenter,
-            height: 40,
-            width: double.infinity,
-            color: Colors.deepPurpleAccent ,
+          Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(10))
+                  ),
+                  child: TextFormField(
+                    style: TextStyle(fontSize: 18, color: Colors.black),
+                    decoration: InputDecoration(
+                        hintText: "search",
+                        border: OutlineInputBorder(
+                            borderSide: BorderSide(width: 20, color: Colors.red),
+                            borderRadius: BorderRadius.all(Radius.circular(10))
+                        ),
+                        prefixIcon: Icon(Icons.search,)
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  // alignment: AlignmentDirectional.bottomCenter,
+                  height: 100,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: Colors.black54,
+                      borderRadius: BorderRadius.all(Radius.circular(10))
+                  ),
+                ),
+              ),
+            ],
           )
         ],
       )
