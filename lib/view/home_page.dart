@@ -34,8 +34,6 @@ class HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Expanded(
-              // height: MediaQuery.of(context).size.height/3,
-              // color: Colors.blueAccent,
               child: Stack(
                 children: <Widget>[
                   Container(
@@ -72,9 +70,19 @@ class HomePageState extends State<HomePage> {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
+                            width: double.infinity,
                             decoration: BoxDecoration(
                                 color: Colors.black54,
                                 borderRadius: BorderRadius.all(Radius.circular(10))
+                            ),
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: 5,
+                              itemBuilder: (context, index) {
+                                return ListTile(
+                                  title: Text("data"),
+                                );
+                              },
                             ),
                           ),
                         ),
